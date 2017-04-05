@@ -1,5 +1,6 @@
 load ex1_data;
 % A=diag(rand(1,7));
+Ts=0.1;
 sys1 = ss(A,B,C,D);
 %%
 % a) what are the poles of the system:
@@ -10,7 +11,7 @@ pzmap(sys1);
 % no, there are poles on the right size
 
 %%
-% c) what are the transmission zeros
+% c,d) what are the transmission zeros
 transmission_zeros=tzero(sys1);
 z=transmission_zeros(4);
 
