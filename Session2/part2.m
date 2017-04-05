@@ -3,7 +3,7 @@ load ex2_data.mat;
 %% 
 ss_or=ss(A,B2,C2,D1);
 R=eye(2); % size(B2) = 3     2
-Q=eye(3);
+Q=eye(3)*1000;
 %% a)
 
 %  are  Algebraic Riccati Equation solution. 
@@ -51,3 +51,7 @@ X = are(A,B2*inv(R)*B2',Q);
 norm(X-S)
 
 %% c) plug it back into the system
+figure;
+B1_ = B1*[1 0; 0 0;];
+ss_mod=ss(A-B2*K,B1_,C2,D1);
+impulse(ss_mod);
