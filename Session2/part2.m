@@ -55,3 +55,16 @@ figure;
 B1_ = B1*[1 0; 0 0;];
 ss_mod=ss(A-B2*K,B1_,C2,D1);
 impulse(ss_mod);
+
+%% c) check what happens to the states
+figure;
+B1_ = B1*[1 0; 0 0;];
+ss_mod=ss(A-B2*K,B1_,C2,D1);
+[Y_impulse,T_impulse,X_impulse] =impulse(ss_mod);
+input_id=1;
+subplot(3,1,1);
+plot(X_impulse(:,1,input_id));
+subplot(3,1,2);
+plot(X_impulse(:,2,input_id));
+subplot(3,1,3);
+plot(X_impulse(:,3,input_id));
