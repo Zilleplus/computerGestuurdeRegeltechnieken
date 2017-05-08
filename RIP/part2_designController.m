@@ -4,20 +4,21 @@ load('model.mat');
 sys=ss(A,B,C,D);
 
 Q=[
-    4 0  0 0 ;
-    0 20 0 0 ;
-    0 0  0 0 ;
-    0 0  0 0 ;
+    5 0   0    0 ;
+    0  60 0   0 ;
+    0  0   0   0 ;
+    0  0   0   1 ;
     ];
 
-R=1.5;
+R=0.9;
 
 [K,~,~] = lqr(sys,Q,R);
 
 %% Without figure save
-Ts=1/100; % sample time used to create figures
-theta_d=0.3; % desired location
-x0=[0.5;0;0;0]; % intial condition
+Ts=1/200; % sample time used to create figures
+power_noise=1*10^-8;
+theta_d=1; % desired location
+x0=[0;0;0;0]; % intial condition
 simTime=10;
 sim('part2_LQR1_sim');
 
