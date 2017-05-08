@@ -36,13 +36,21 @@ B=[
     b*(Mum*Mug*Kt*Kg)/(Rm*E)
   ];
 
-C=eye(4);
-D=zeros(4,1);
+C=eye(2,4);
+D=zeros(2,1);
 %% simulate the model
 sys=ss(A,B,C,D);
 
-figure;
-impulse(ss);
+fig=figure;
+pzmap(sys);
+saveas(fig,'./report/img/part1_analysis/zplot.png');
 
+fig=figure;
+step(ss);
+saveas(fig,'./report/img/part1_analysis/step.png');
+
+fig=figure;
+impulse(ss);
+saveas(fig,'./report/img/part1_analysis/impulse.png');
 %% save the matrices and the model to use in other matlab files
 save('model.mat','A','B','C','D');
