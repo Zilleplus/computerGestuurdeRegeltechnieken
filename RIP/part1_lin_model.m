@@ -42,15 +42,39 @@ D=zeros(2,1);
 sys=ss(A,B,C,D);
 
 fig=figure;
-pzmap(sys);
-saveas(fig,'./report/img/part1_analysis/zplot.png');
-
-fig=figure;
 step(ss);
-saveas(fig,'./report/img/part1_analysis/step.png');
+% saveas(fig,'./report/img/part1_analysis/step.png');
 
 fig=figure;
 impulse(ss);
-saveas(fig,'./report/img/part1_analysis/impulse.png');
+% saveas(fig,'./report/img/part1_analysis/impulse.png');
+%% analyse the properties of the system
+% where are the poles?
+disp('the poles of the system are:');
+disp(eig(A));
+
+fig=figure;
+pzmap(sys);
+saveas(fig,'./report/img/part1_analysis/zplot.png');
+
+% controllability / stabilisable
+C_= ctrb(A,B);
+disp(['The rank of the controllability matrix should be 4 in reality it is ' ...
+    num2str(rank(C_))]);
+[~,svd_D,~]=svd(C_);
+disp(['The smallest singular values is:' num2str(min(diag(svd_D)))]);
+
+% observability / detectable
+OO = obsv(A,C);
+disp(['The rank of the observability matrix should be 4 in reality it is ' ... 
+    num2str(rank(OO))]);
+[~,svd_D,~]=svd(OO);
+disp(['The smallest singular values is:' num2str(min(diag(svd_D)))]);
+
+% are there any transmission zeros?
+transmission_zeros_discrete = tzero(sys);
+disp(['there are ' num2str(size(transmission_zeros_discrete,1)) ...
+    ' transmission zeros:' ]);
+disp(transmission_zeros_discrete)
 %% save the matrices and the model to use in other matlab files
 save('model.mat','A','B','C','D');
