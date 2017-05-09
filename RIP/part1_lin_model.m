@@ -43,11 +43,11 @@ sys=ss(A,B,C,D);
 
 fig=figure;
 step(ss);
-% saveas(fig,'./report/img/part1_analysis/step.png');
+saveas(fig,'./report/img/part1_analysis/step.png');
 
 fig=figure;
 impulse(ss);
-% saveas(fig,'./report/img/part1_analysis/impulse.png');
+saveas(fig,'./report/img/part1_analysis/impulse.png');
 %% analyse the properties of the system
 % where are the poles?
 disp('the poles of the system are:');
@@ -77,4 +77,4 @@ disp(['there are ' num2str(size(transmission_zeros_discrete,1)) ...
     ' transmission zeros:' ]);
 disp(transmission_zeros_discrete)
 %% save the matrices and the model to use in other matlab files
-save('model.mat','A','B','C','D');
+% save('model.mat','A','B','C','D');
