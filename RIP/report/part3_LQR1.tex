@@ -1,27 +1,94 @@
-\section{LQR1}
+\section{First closed loop}
+\subsection{simulink diagram}
+\subsection{Determine the values of Q and R}
 With default Q and R
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{./part2_LQR1/default_QR_states.png}
+		\includegraphics[width=\textwidth]{./part2_LQR1/1_default_QR_states.png}
 		\caption{plot of the states in function of time}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{./part2_LQR1/default_QR_inputs.png}
-		\caption{plot of the input signal in function of time}
+		\includegraphics[width=\textwidth]{./part2_LQR1/1_default_QR_inputs.png}
+		\caption{plot of the signal send to the motor in function of time}
 	\end{subfigure}
-	\caption{RIP with 0.5 as start position and a desired position 0}
+	\caption{RIP with default values for Q and R}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{./part2_LQR1/default_QR_with_desired_states.png}
+		\includegraphics[width=\textwidth]{./part2_LQR1/2_lower_R_states.png}
 		\caption{plot of the states in function of time}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{./part2_LQR1/default_QR_with_desired_inputs.png}
-		\caption{plot of the input signal in function of time}
+		\includegraphics[width=\textwidth]{./part2_LQR1/2_lower_R_inputs.png}
+		\caption{plot of the signal send to the motor in function of time}
 	\end{subfigure}
-	\caption{RIP with 0.5 as start position and a desired position 0.3}
+	\caption{RIP lower R}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part2_LQR1/3_increase_theta_states.png}
+		\caption{plot of the states in function of time}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part2_LQR1/3_increase_theta_inputs.png}
+		\caption{plot of the signal send to the motor in function of time}
+	\end{subfigure}
+	\caption{RIP increase $\theta$}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part2_LQR1/4_increase_alpha_states.png}
+		\caption{plot of the states in function of time}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part2_LQR1/4_increase_alpha_inputs.png}
+		\caption{plot of the signal send to the motor in function of time}
+	\end{subfigure}
+	\caption{RIP increase $\alpha$}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part2_LQR1/5_increase_alpha_dot_states.png}
+		\caption{plot of the states in function of time}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part2_LQR1/5_increase_alpha_dot_inputs.png}
+		\caption{plot of the signal send to the motor in function of time}
+	\end{subfigure}
+	\caption{RIP increase $\dot{\alpha}$}
+\end{figure}
+
+%\begin{figure}[H]
+%	\centering
+%	\begin{subfigure}[b]{0.45\textwidth}
+%		\includegraphics[width=\textwidth]{./part2_LQR1/final_states.png}
+%		\caption{plot of the states in function of time}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.45\textwidth}
+%		\includegraphics[width=\textwidth]{./part2_LQR1/final_inputs.png}
+%		\caption{plot of the signal send to the motor in function of time}
+%	\end{subfigure}
+%	\caption{RIP final states}
+%\end{figure}
+
+The final values for Q and R are:
+$$
+Q=\begin{bmatrix}
+10 & 0 & 0 & 0 \\
+0 & 60 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{bmatrix}
+R=0.5
+$$
+
+\subsection{simulated setpoint change}
