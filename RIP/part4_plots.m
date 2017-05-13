@@ -37,43 +37,31 @@ variance_alpha = var(before_filter.signals.values(:,2)-after_filter.signals.valu
 histogram(before_filter.signals.values(:,2)-after_filter.signals.values(:,2));
 title(['\alpha variance=' num2str(variance_alpha)]);
 saveas(fig,'./report/img/part4_experiments/noise/histogram.png');
-%%
+%% the manual tracking
 clc;clear all;
 load('./measurement_data/exp3_tracking_points.mat');
-fig=figure;
-subplot(2,1,1);
-plot(desired_state.time,desired_state.signals.values(:,1)); hold all;
-plot(estimated_state.time,estimated_state.signals.values(:,1)); hold all;
-title('\theta');
-subplot(2,1,2);
-plot(desired_state.time,desired_state.signals.values(:,2)); hold all;
-plot(estimated_state.time,estimated_state.signals.values(:,2));
-title('\alpha');
-saveas(fig,'./report/img/part4_experiments/tracking_manual/alpha_theta.png');
+folderName='tracking_manual';
+part4_tracking_plot( desired_state,estimated_state,motor_input,...
+    folderName );
 
-fig=figure;
-subplot(2,1,1);
-plot(desired_state.time,desired_state.signals.values(:,3)); hold all;
-plot(estimated_state.time,estimated_state.signals.values(:,3)); hold all;
-title('\theta');
-subplot(2,1,2);
-plot(desired_state.time,desired_state.signals.values(:,4)); hold all;
-plot(estimated_state.time,estimated_state.signals.values(:,4));
-title('\alpha');
-saveas(fig,'./report/img/part4_experiments/tracking_manual/alpha_theta_dot.png');
-%%
-clc;clear all;
-load('./measurement_data/exp2_tracking_sine.mat');
+%% DO NOT USE THE WRONG MEASUREMENTS WITH OLD FC
+% clc;clear all;
+% load('./measurement_data/exp2_tracking_sine.mat');
 %%
 clc;clear all;
 load('./measurement_data/exp2_tracking_sine_fc2.mat');
+folderName='tracking_sine';
+part4_tracking_plot( desired_state,estimated_state,motor_input,...
+    folderName );
 %%
 clc;clear all;
 load('./measurement_data/exp2_tracking_stair_fc2.mat');
+folderName='tracking_stair';
+part4_tracking_plot( desired_state,estimated_state,motor_input,...
+    folderName );
 %%
 clc;clear all;
 load('./measurement_data/exp4_disturbance_rejection_fc2_V2.mat');
-%%
-clc;clear all;
-load('./measurement_data/exp4_disturbance_rejection_fc2_V2.mat');
-%%
+folderName='disturbance_rejection';
+part4_tracking_plot( desired_state,estimated_state,motor_input,...
+    folderName );
