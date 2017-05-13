@@ -12,16 +12,25 @@
 
 \subsection{noise analysis}
 
+
+$\theta$ and $\alpha$ have been measured before and after the low pass filter. The difference between those signals is considered noise as displayed in figure~\ref{fig:time plot noise}. Instead of looking at the noise in function of time its very useful to look at a histogram as is done in figure~\ref{fig:hist noise}. The variance of the noise can easily be calculated and then used in the simulation.
+
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{./part4_experiments/noise/simple_plot.png}
+		\caption{time plot of $\theta$ and $\alpha$ before and after the low pass filter}
+		\label{fig:time plot theta and alpha}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{./part4_experiments/noise/difference.png}
+		\caption{Difference of $\theta$/$\alpha$ before and after the low pass filter}
+		\label{fig:time plot noise}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\includegraphics[width=\textwidth]{./part4_experiments/noise/histogram.png}
+		\caption{Historgram of the noise}
+		\label{fig:hist noise}
 	\end{subfigure}
 \end{figure}
 
