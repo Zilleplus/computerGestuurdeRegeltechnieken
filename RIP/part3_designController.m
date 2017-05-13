@@ -14,29 +14,30 @@ R=0.5;
 
 [K,~,~] = lqr(sys,Q,R);
 
-%% Without figure save
+%% with tested parameters
 Ts=1/200; % sample time used to create figures
-power_noise=1*10^-8;
+var_noise_theta=1*10^-8;
+var_noise_alpha=1*10^-8;
+
 theta_d=1; % desired location
 x0=[0;0;0;0]; % intial condition
-Omgc=3*(2*pi); % use 2 Hz as cut off frequency
+fc=3;
+Omgc=fc*(2*pi); % use 2 Hz as cut off frequency
 simTime=10;
 sim('part3_LQR2_sim');
 
-fig=figure(1);clf;
-plot(sim_data.time,sim_data.Data(:,1));hold all;
-plot(sim_data.time,sim_data.Data(:,2));hold all;
-plot(sim_data.time,sim_data.Data(:,3));hold all;
-plot(sim_data.time,sim_data.Data(:,4));hold all;
-legend('\theta','\alpha','\theta_{speed}','\alpha_{speed}');
+part3_plot( sim_data,sim_data_estimator,input_data,'normal_parameters' );
 
-fig=figure(2);clf;
-plot(input_data.time,input_data.Data(:,1))
+%% with noise derived from tests
+Ts=1/200; % sample time used to create figures
+var_noise_theta=1*10^-4;
+var_noise_alpha=1*10^-6;
 
-fig=figure(3);clf;
-plot(sim_data.time,sim_data.Data(:,3));hold all;
-plot(sim_data_estimator.time,sim_data_estimator.Data(:,3)); hold all;
-plot(sim_data.time,sim_data.Data(:,4));hold all;
-plot(sim_data_estimator.time,sim_data_estimator.Data(:,4)); hold all;
-legend('\theta_{speed}','estimator \theta_{speed}','\alpha_{speed}', ...
-    'estimator \alpha_{speed}');
+theta_d=1; % desired location
+x0=[0;0;0;0]; % intial condition
+fc=2;
+Omgc=fc*(2*pi); % use 2 Hz as cut off frequency
+simTime=10;
+sim('part3_LQR2_sim');
+
+part3_plot( sim_data,sim_data_estimator,input_data,'noise_experiments' );
