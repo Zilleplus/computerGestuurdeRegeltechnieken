@@ -30,7 +30,7 @@ part3_plot( sim_data,sim_data_estimator,input_data,'normal_parameters' );
 
 %% with noise derived from tests
 Ts=1/200; % sample time used to create figures
-var_noise_theta=1*10^-4;
+var_noise_theta=1*10^-6;
 var_noise_alpha=1*10^-6;
 
 theta_d=1; % desired location

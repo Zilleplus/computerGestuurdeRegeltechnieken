@@ -50,8 +50,8 @@ part2_plotter( sim_data,input_data,name );
 Q=[
     10 0   0   0 ;
     0  20  0   0 ;
-    0  0   0   0 ;
-    0  0   0   0 ;
+    0  0   0.1   0 ;
+    0  0   0   0.1 ;
     ];
 
 R=0.5;
@@ -68,8 +68,8 @@ part2_plotter( sim_data,input_data,name );
 Q=[
     10 0   0   0 ;
     0  60  0   0 ;
-    0  0   0   0 ;
-    0  0   0   0 ;
+    0  0   0.1   0 ;
+    0  0   0   0.1 ;
     ];
 
 R=0.5;
@@ -86,8 +86,8 @@ part2_plotter( sim_data,input_data,name );
 Q=[
     10 0   0   0 ;
     0  60  0   0 ;
-    0  0   0   0 ;
-    0  0   0   0 ;
+    0  0   0.1   0 ;
+    0  0   0   0.1 ;
     ];
 
 R=0.5;
@@ -104,7 +104,7 @@ part2_plotter( sim_data,input_data,name );
 Q=[
     10 0   0   0 ;
     0  60  0   0 ;
-    0  0   0   0 ;
+    0  0   0.1   0 ;
     0  0   0   1 ;
     ];
 
