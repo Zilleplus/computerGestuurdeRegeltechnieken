@@ -22,26 +22,31 @@
 	\end{subfigure}
 	\caption{simulink diagram}
 \end{figure}
-\subsection{noise analysis}
-	$\theta$ and $\alpha$ have been measured before and after the low pass filter. The difference between those signals is considered noise as displayed in figure~\ref{fig:time plot noise}. Instead of looking at the noise in function of time its very useful to look at a histogram as is done in figure~\ref{fig:hist noise}. The variance of the noise can easily be calculated and then used in the simulation.
+\subsection{Noise Analysis}
+	$\theta$ and $\alpha$ have been measured before and after the low pass filter. The difference between those signals is considered noise as displayed in figure~\ref{fig:time plot noise}. Instead of looking at the noise in function of time its very useful to look at a histogram as is done in figure~\ref{fig:hist noise}.
+	
+	The variance of the noise can be computed and then used in the simulation. As the variance is the power in the signal $power = \frac{u_{eff}^2}{R} = \frac{stdev^2}{1 \Omega}$= variance
+	
+	
 	
 	\begin{figure}[H]
 		\centering
-		\begin{subfigure}[b]{0.45\textwidth}
-			\includegraphics[width=\textwidth]{./part4_experiments/noise/simple_plot.png}
+		\begin{subfigure}[b]{0.40\textwidth}
+			\includegraphics[width=\textwidth]{./part4_experiments/noise/simple_plot_2.png}
 			\caption{time plot of $\theta$ and $\alpha$ before and after the low pass filter}
 			\label{fig:time plot theta and alpha}
 		\end{subfigure}
-		\begin{subfigure}[b]{0.45\textwidth}
-			\includegraphics[width=\textwidth]{./part4_experiments/noise/difference.png}
+		\begin{subfigure}[b]{0.40\textwidth}
+			\includegraphics[width=\textwidth]{./part4_experiments/noise/difference_2.png}
 			\caption{Difference of $\theta$/$\alpha$ before and after the low pass filter}
 			\label{fig:time plot noise}
 		\end{subfigure}
-		\begin{subfigure}[b]{0.45\textwidth}
-			\includegraphics[width=\textwidth]{./part4_experiments/noise/histogram.png}
+		\begin{subfigure}[b]{0.40\textwidth}
+			\includegraphics[width=\textwidth]{./part4_experiments/noise/histogram_2.png}
 			\caption{Historgram of the noise}
 			\label{fig:hist noise}
 		\end{subfigure}
+		\caption{measurement of $\theta$ and $\alpha$ before and after the low pass filter}
 	\end{figure}
 
 \subsection{manual tracking}
@@ -112,3 +117,92 @@
 		\end{subfigure}
 		\caption{disturbance rejection test}
 	\end{figure}
+
+\subsection{The role of the cut-off frequency of the low pass filter}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC05/alpha_theta.png}
+		\caption{$f_c=0.5Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC1/alpha_theta.png}
+		\caption{$f_c=1Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC2/alpha_theta.png}
+		\caption{$f_c=2Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC3/alpha_theta.png}
+		\caption{$f_c=3Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC4/alpha_theta.png}
+		\caption{$f_c=4Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC8/alpha_theta.png}
+		\caption{$f_c=4Hz$}
+	\end{subfigure}
+	\caption{measured $\theta$ and $\alpha$ states for different cut off frequencies}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC05/alpha_theta_dot.png}
+		\caption{$f_c=0.5Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC1/alpha_theta_dot.png}
+		\caption{$f_c=1Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC2/alpha_theta_dot.png}
+		\caption{$f_c=2Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC3/alpha_theta_dot.png}
+		\caption{$f_c=3Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC4/alpha_theta_dot.png}
+		\caption{$f_c=4Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC8/alpha_theta_dot.png}
+		\caption{$f_c=4Hz$}
+	\end{subfigure}
+	\caption{calculated $\dot{\theta}$ and $\dot{\alpha}$ states for different cut off frequencies}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC05/motor_input.png}
+		\caption{$f_c=0.5Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC1/motor_input.png}
+		\caption{$f_c=1Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC2/motor_input.png}
+		\caption{$f_c=2Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC3/motor_input.png}
+		\caption{$f_c=3Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC4/motor_input.png}
+		\caption{$f_c=4Hz$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{./part5_experiments/FC8/motor_input.png}
+		\caption{$f_c=4Hz$}
+	\end{subfigure}
+	\caption{motor input for different cut off frequencies}
+\end{figure}
+
