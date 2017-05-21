@@ -1,6 +1,6 @@
 \section{Model and open loop analysis}
 \subsection{Model analysis}
-The continue state space model where $u=V$ (voltage on the motor) and x=$[\theta \ \alpha \  \dot{\theta} \ \dot{\alpha} ]$ is theoretical derived in the assignment and leads to the following system. The system can only directly measure $\theta$ and $\alpha$, so these determine the matrix C and D.
+The continuous state space model where $u=V$ (voltage on the motor) and x=$[\theta \ \alpha \  \dot{\theta} \ \dot{\alpha} ]$ is theoretical derived in the assignment and leads to the following system. The system can only directly measure $\theta$ and $\alpha$, so these determine the matrix C and D.
 
 $$
 \begin{cases}
@@ -35,9 +35,9 @@ D=
 \end{bmatrix}
 $$
 
-\subsection{Open loop analysis}
+\subsection{Open loop analysis;TODO}
 
-The system contains 1 unstable pole at about 5.3 (see figure~\ref{fig:zplot system}), this obviously means that the system is unstable. The rank of the controllability matrix is 4, the smallest singular value of the controllability matrix is 1.7. So the system is controllable, which is very useful if its of an unstable nature. The observability matrix is of rank 4 which with a smallest singular value of 1. So the system is observable.
+The system contains 1 unstable pole at about 5.3 (see figure~\ref{fig:zplot system}), this obviously means that the system is unstable. The rank of the controllability matrix is 4, the smallest singular value of the controllability matrix is 1.7. So the system is controllable, controllability is necessary if its of an unstable nature and a stable system is wanted. The observability matrix is of rank 4 which with a smallest singular value of 1. So the system is observable.
 %M: Ik zou niet zeggen dat het erg handig is dat een onstabiel systeem contolable is, het is nuttig dat een systeem controlable is waneer je het wilt controleren en het is voldoende als je een onstabiel systeem wilt stabilizeren dat het stabilizeerbaar is. Maar de zin die er nu staat vind ik wat veermd, niet?
 
 \begin{figure}[H]
@@ -49,6 +49,10 @@ The system contains 1 unstable pole at about 5.3 (see figure~\ref{fig:zplot syst
 
 If the system is controllable then it's stabilizable and if its observable then it's also detectable which means that if there are unstable states, they you can at least detect unstability.
 
+@TODO is the system minimal?
 \subsection{control goals}
+When designing a controller trade offs have to be made.If it would be possible to create a fast,robust,.. controller then this would be the best option. However in this report robustness was preferred over speed. However the robustness comes at a price, if robustness is preferred then the controller will lose speed. Rise and fall times where not a priority, and are quiet bad. The disturbance rejection on the other had is very good.
 
-Our goals of the controller is to make a stable robust system, it must not be very fast because it will than also be more nervous. We would like that the system can track setpoints up to some step-responses. But our objective is more a robustness system than a fast one.
+So the priority when designing this controller was to make a stable robust system, it should not be very fast as this will result in a nervous system. We would like that the system can track setpoints up to some step-responses. But our objective is more a robustness system than a fast one.
+
+%One of the most forward ways to check if the controller wasn't to nervous was to listen to the sound of the device. A nervous controller will react very fast on small changes and this creates a very unhealthy clicking noise. This obviously cant be good for the mechanical components. 
