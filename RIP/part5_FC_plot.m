@@ -3,30 +3,37 @@ function part5_FC_plot( desired_state,estimated_state,motor_input,...
 
     fig=figure;
     subplot(2,1,1);
-    plot(desired_state.time,desired_state.signals.values(:,1)); hold all;
-    plot(estimated_state.time,estimated_state.signals.values(:,1)); hold all;
-    title('\theta');
+    plot(desired_state.time,desired_state.signals.values(:,1),'green'); hold all;
+    plot(estimated_state.time,estimated_state.signals.values(:,1),'black'); hold all;
+    title('\theta');xlabel('t(s)');
+    ylim([-0.2 0.4]);
+    legend('desired','measured');
     subplot(2,1,2);
-    plot(desired_state.time,desired_state.signals.values(:,2)); hold all;
-    plot(estimated_state.time,estimated_state.signals.values(:,2));
-    title('\alpha');
+    plot(desired_state.time,desired_state.signals.values(:,2),'green'); hold all;
+    plot(estimated_state.time,estimated_state.signals.values(:,2),'black');
+    title('\alpha');xlabel('t(s)');
+    ylim([-0.1 0.1]);
+    legend('desired','measured');
     saveas(fig,['./report/img/part5_experiments/' folderName ...
         '/alpha_theta.png']);
 
     fig=figure;
     subplot(2,1,1);
-    plot(desired_state.time,desired_state.signals.values(:,3)); hold all;
-    plot(estimated_state.time,estimated_state.signals.values(:,3)); hold all;
-    title('\theta_{speed}');
+    plot(desired_state.time,desired_state.signals.values(:,3),'green'); hold all;
+    plot(estimated_state.time,estimated_state.signals.values(:,3),'black'); hold all;
+    title('\theta_{speed}');xlabel('t(s)');
+    legend('desired','measured');
     subplot(2,1,2);
-    plot(desired_state.time,desired_state.signals.values(:,4)); hold all;
-    plot(estimated_state.time,estimated_state.signals.values(:,4));
-    title('\alpha_{speed}');
+    plot(desired_state.time,desired_state.signals.values(:,4),'green'); hold all;
+    plot(estimated_state.time,estimated_state.signals.values(:,4),'black');
+    title('\alpha_{speed}');xlabel('t(s)');
+    legend('desired','measured');
     saveas(fig,['./report/img/part5_experiments/' folderName ...
         '/alpha_theta_dot.png']);
     
     fig=figure;
-    plot(motor_input.time,motor_input.signals.values); hold all;
+    plot(motor_input.time,motor_input.signals.values,'black'); hold all;
+    ylim([-5 5]);
     saveas(fig,['./report/img/part5_experiments/' folderName ...
         '/motor_input.png']);
 end

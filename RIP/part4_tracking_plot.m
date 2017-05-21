@@ -5,11 +5,11 @@ function part4_tracking_plot( desired_state,estimated_state,motor_input,...
     subplot(2,1,1);
     plot(desired_state.time,desired_state.signals.values(:,1)); hold all;
     plot(estimated_state.time,estimated_state.signals.values(:,1)); hold all;
-    title('\theta');
+    title('\theta');xlabel('t(s)');
     subplot(2,1,2);
     plot(desired_state.time,desired_state.signals.values(:,2)); hold all;
     plot(estimated_state.time,estimated_state.signals.values(:,2));
-    title('\alpha');
+    title('\alpha');xlabel('t(s)');
     saveas(fig,['./report/img/part4_experiments/' folderName ...
         '/alpha_theta.png']);
 
@@ -17,11 +17,11 @@ function part4_tracking_plot( desired_state,estimated_state,motor_input,...
     subplot(2,1,1);
     plot(desired_state.time,desired_state.signals.values(:,3)); hold all;
     plot(estimated_state.time,estimated_state.signals.values(:,3)); hold all;
-    title('\theta_{speed}');
+    title('\theta_{speed}');xlabel('t(s)');
     subplot(2,1,2);
     plot(desired_state.time,desired_state.signals.values(:,4)); hold all;
     plot(estimated_state.time,estimated_state.signals.values(:,4));
-    title('\alpha_{speed}');
+    title('\alpha_{speed}');xlabel('t(s)');
     saveas(fig,['./report/img/part4_experiments/' folderName ...
         '/alpha_theta_dot.png']);
     
