@@ -9,10 +9,11 @@
 		\item disturbances
 	\end{itemize}
 
-\subsection{simulink}
+\subsection{Simulink}
+Figure~\ref{fig:simulink measurement diagram} contains the Simulink diagram used for the measurements. The same estimator subsystem as in the previous section was used. With a cut-off frequency of $f_c=2Hz$, the saturation block is not necessary here. As Simulink itself will limit the output to the motor.
 	\begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.55\textwidth}
 		\includegraphics[width=\textwidth]{./part4_experiments/not_generated/simulink_main.png}
 		\caption{main diagram}
 	\end{subfigure}
@@ -21,6 +22,7 @@
 		\caption{estimator}
 	\end{subfigure}
 	\caption{simulink diagram}
+	\label{fig:simulink measurement diagram}
 \end{figure}
 \subsection{Noise Analysis}
 	$\theta$ and $\alpha$ have been measured before and after the low pass filter. The difference between those signals is considered noise as displayed in figure~\ref{fig:time plot noise}. Instead of looking at the noise in function of time its very useful to look at a histogram as is done in figure~\ref{fig:hist noise}.
