@@ -27,6 +27,8 @@ function part4_tracking_plot( desired_state,estimated_state,motor_input,...
     
     fig=figure;
     plot(motor_input.time,motor_input.signals.values); hold all;
+    ylim([-5 5]);
+    xlable('t(s)');ylable('u');
     saveas(fig,['./report/img/part4_experiments/' folderName ...
         '/motor_input.png']);
 end
