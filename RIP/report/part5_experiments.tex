@@ -24,24 +24,23 @@ Figure~\ref{fig:simulink measurement diagram} contains the Simulink diagram used
 	\caption{simulink diagram}
 	\label{fig:simulink measurement diagram}
 \end{figure}
+
 \subsection{Noise Analysis}
-	$\theta$ and $\alpha$ have been measured before and after the low pass filter. The difference between those signals is considered noise as displayed in figure~\ref{fig:time plot noise}. Instead of looking at the noise in function of time its very useful to look at a histogram as is done in figure~\ref{fig:hist noise}.
+	$\theta$ and $\alpha$ have been measured before the low pass filter with no input signal, the signal measured is considered noise as displayed in figure~\ref{fig:time noise}. Instead of looking at the noise in function of time its very useful to look at the frequency spectrum and the histogram as is done in figure~\ref{fig:freq noise} and figure~\ref{fig:hist noise}. From the histogram we concluded that the noise is Gaussian. In the frequency spectrum you can see that there is a dominant low frequency band and a dominant frequency at 50Hz (net frequency). the rest of the spectrum is more or less flat so Gaussian noise is a good assumption.
 	
 	The variance of the noise can be computed and then used in the simulation. As the variance is the power in the signal $power = \frac{u_{eff}^2}{R} = \frac{stdev^2}{1 \Omega}$= variance
-	
-	
-	
+		
 	\begin{figure}[H]
 		\centering
 		\begin{subfigure}[b]{0.40\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/noise/simple_plot_2.png}
 			\caption{time plot of $\theta$ and $\alpha$ before and after the low pass filter}
-			\label{fig:time plot theta and alpha}
+			\label{fig:time noise}
 		\end{subfigure}
 		\begin{subfigure}[b]{0.40\textwidth}
-			\includegraphics[width=\textwidth]{./part4_experiments/noise/difference_2.png}
+			\includegraphics[width=\textwidth]{./part4_experiments/noise/freq_spec.png}
 			\caption{Difference of $\theta$/$\alpha$ before and after the low pass filter}
-			\label{fig:time plot noise}
+			\label{fig:freq noise}
 		\end{subfigure}
 		\begin{subfigure}[b]{0.40\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/noise/histogram_2.png}
@@ -51,7 +50,11 @@ Figure~\ref{fig:simulink measurement diagram} contains the Simulink diagram used
 		\caption{measurement of $\theta$ and $\alpha$ before and after the low pass filter}
 	\end{figure}
 
+
 \subsection{manual tracking}
+
+
+
 	\begin{figure}[H]
 		\centering
 		\begin{subfigure}[b]{0.45\textwidth}
