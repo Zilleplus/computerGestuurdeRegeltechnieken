@@ -6,13 +6,13 @@ function part5_FC_plot( desired_state,estimated_state,motor_input,...
     plot(desired_state.time,desired_state.signals.values(:,1),'green'); hold all;
     plot(estimated_state.time,estimated_state.signals.values(:,1),'black'); hold all;
     title('\theta');xlabel('t(s)');
-    ylim([-0.2 0.4]);
+    ylim([-0.4 0.4]);
     legend('desired','measured');
     subplot(2,1,2);
     plot(desired_state.time,desired_state.signals.values(:,2),'green'); hold all;
     plot(estimated_state.time,estimated_state.signals.values(:,2),'black');
     title('\alpha');xlabel('t(s)');
-    ylim([-0.1 0.1]);
+    ylim([-0.08 0.08]);
     legend('desired','measured');
     saveas(fig,['./report/img/part5_experiments/' folderName ...
         '/alpha_theta.png']);
@@ -23,11 +23,13 @@ function part5_FC_plot( desired_state,estimated_state,motor_input,...
     plot(estimated_state.time,estimated_state.signals.values(:,3),'black'); hold all;
     title('\theta_{speed}');xlabel('t(s)');
     legend('desired','measured');
+    ylim([-1 1]);
     subplot(2,1,2);
     plot(desired_state.time,desired_state.signals.values(:,4),'green'); hold all;
     plot(estimated_state.time,estimated_state.signals.values(:,4),'black');
     title('\alpha_{speed}');xlabel('t(s)');
     legend('desired','measured');
+    ylim([-0.2 0.2]);
     saveas(fig,['./report/img/part5_experiments/' folderName ...
         '/alpha_theta_dot.png']);
     

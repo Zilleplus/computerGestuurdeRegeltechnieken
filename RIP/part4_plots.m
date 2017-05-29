@@ -37,12 +37,12 @@
 % histogram(before_filter.signals.values(:,2)-after_filter.signals.values(:,2));
 % title(['\alpha variance=' num2str(variance_alpha)]);
 % saveas(fig,'./report/img/part4_experiments/noise/histogram.png');
-%% the manual tracking
+%% step response
 clc;clear all;
 load('./measurement_data/exp3_tracking_points.mat');
 folderName='tracking_manual';
-part4_tracking_plot( desired_state,estimated_state,motor_input,...
-    folderName );
+part4_tracking_plot_step( desired_state,estimated_state,motor_input,...
+    folderName,6,15 );
 
 %% DO NOT USE THE WRONG MEASUREMENTS WITH OLD FC
 % clc;clear all;
@@ -57,11 +57,11 @@ part4_tracking_plot( desired_state,estimated_state,motor_input,...
 clc;clear all;
 load('./measurement_data/exp2_tracking_stair_fc2.mat');
 folderName='tracking_stair';
-part4_tracking_plot( desired_state,estimated_state,motor_input,...
-    folderName );
+part4_tracking_plot_step( desired_state,estimated_state,motor_input,...
+    folderName,5,20 );
 %%
 clc;clear all;
 load('./measurement_data/exp4_disturbance_rejection_fc2_V2.mat');
 folderName='disturbance_rejection';
-part4_tracking_plot( desired_state,estimated_state,motor_input,...
-    folderName );
+part4_tracking_plot_step( desired_state,estimated_state,motor_input,...
+    folderName,8,17 );

@@ -19,7 +19,7 @@ Ts=1/200; % sample time used to create figures
 var_noise_theta=1*10^-8;
 var_noise_alpha=1*10^-8;
 
-theta_d=1; % desired location
+theta_d=-pi/4; % desired location
 x0=[0;0;0;0]; % intial condition
 fc=2;
 Omgc=fc*(2*pi); % use 2 Hz as cut off frequency
@@ -33,7 +33,7 @@ Ts=1/200; % sample time used to create figures
 var_noise_theta=1.4*10^-6;
 var_noise_alpha=1.96*10^-7;
 
-theta_d=1; % desired location
+theta_d=-pi/4; % desired location
 x0=[0;0;0;0]; % intial condition
 fc=2;
 Omgc=fc*(2*pi); % use 2 Hz as cut off frequency
@@ -47,7 +47,7 @@ Ts=1/200; % sample time used to create figures
 var_noise_theta=1.4*10^-6;
 var_noise_alpha=1.96*10^-7;;
 
-theta_d=1; % desired location
+theta_d=-pi/4; % desired location
 x0=[0;0;0;0]; % intial condition
 fc=0.5;
 Omgc=fc*(2*pi); % use 2 Hz as cut off frequency
@@ -60,7 +60,7 @@ Ts=1/200; % sample time used to create figures
 var_noise_theta=1.4*10^-6;
 var_noise_alpha=1.96*10^-7;
 
-theta_d=1; % desired location
+theta_d=-pi/4; % desired location
 x0=[0;0;0;0]; % intial condition
 fc=8;
 Omgc=fc*(2*pi); % use 2 Hz as cut off frequency

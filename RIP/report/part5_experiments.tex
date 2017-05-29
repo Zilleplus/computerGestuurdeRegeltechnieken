@@ -32,80 +32,86 @@ Figure~\ref{fig:simulink measurement diagram} contains the Simulink diagram used
 		
 	\begin{figure}[H]
 		\centering
-		\begin{subfigure}[b]{0.40\textwidth}
+		\begin{subfigure}[b]{0.30\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/noise/simple_plot_2.png}
-			\caption{time plot of $\theta$ and $\alpha$ before and after the low pass filter}
+			\caption{timeplot of noise on $\theta$ and $\alpha$}
 			\label{fig:time noise}
 		\end{subfigure}
-		\begin{subfigure}[b]{0.40\textwidth}
+		\begin{subfigure}[b]{0.30\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/noise/freq_spec.png}
-			\caption{Difference of $\theta$/$\alpha$ before and after the low pass filter}
+			\caption{frequency spectrum noise $\theta$ $\alpha$}
 			\label{fig:freq noise}
 		\end{subfigure}
-		\begin{subfigure}[b]{0.40\textwidth}
+		\begin{subfigure}[b]{0.30\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/noise/histogram_2.png}
-			\caption{Historgram of the noise}
+			\caption{historgram of the noise}
 			\label{fig:hist noise}
 		\end{subfigure}
-		\caption{measurement of $\theta$ and $\alpha$ before and after the low pass filter}
+		\caption{noise measurement of $\theta$ and $\alpha$}
 	\end{figure}
 
 
-\subsection{manual tracking}
-
-
+\subsection{step response}
+	A step response of $-\frac{\pi}{4}$ is preformed in figure \ref{fig:step_1}. Compared to the step response in figure \ref{fig:simulation results noise} there's a continuous oscillation around the set-point. Both settling-times are similar, around 1 sec. There is a small steady state error that's probably due to the fact that the linearisation was made around $\theta = 0$. In figure \ref{driehoeksgolf} a triangle wave was given as reference input. There is some delay and the overshoot is due to the same problem as the steady state error, combined with the delay. 
 
 	\begin{figure}[H]
 		\centering
-		\begin{subfigure}[b]{0.45\textwidth}
+		\begin{subfigure}[b]{0.4\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/tracking_manual/alpha_theta.png}
 			\caption{states $\theta$ and $\alpha$}
 		\end{subfigure}
-		\begin{subfigure}[b]{0.45\textwidth}
+		\begin{subfigure}[b]{0.4\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/tracking_manual/alpha_theta_dot.png}
 			\caption{states $\dot{\theta}$ and $\dot{\alpha}$}
 		\end{subfigure}
-		\begin{subfigure}[b]{0.45\textwidth}
+		\begin{subfigure}[b]{0.4\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/tracking_manual/motor_input.png}
 			\caption{motor input}
 		\end{subfigure}
+		\caption{step response}
+		\label{fig:step_1}
 	\end{figure}
-\subsection{tracking}
-	\begin{figure}[H]
-		\centering
-		\begin{subfigure}[b]{0.45\textwidth}
-			\includegraphics[width=\textwidth]{./part4_experiments/tracking_sine/alpha_theta.png}
-			\caption{states $\theta$ and $\alpha$}
-		\end{subfigure}
-		\begin{subfigure}[b]{0.45\textwidth}
-			\includegraphics[width=\textwidth]{./part4_experiments/tracking_sine/alpha_theta_dot.png}
-			\caption{states $\dot{\theta}$ and $\dot{\alpha}$}
-		\end{subfigure}
-		\begin{subfigure}[b]{0.45\textwidth}
-			\includegraphics[width=\textwidth]{./part4_experiments/tracking_sine/motor_input.png}
-			\caption{motor input}
-		\end{subfigure}
-		\caption{tracking with a sine wave}
-	\end{figure}
+	
+%\subsection{tracking}
+%	\begin{figure}[H]
+%		\centering
+%		\begin{subfigure}[b]{0.45\textwidth}
+%			\includegraphics[width=\textwidth]{./part4_experiments/tracking_sine/alpha_theta.png}
+%			\caption{states $\theta$ and $\alpha$}
+%		\end{subfigure}
+%		\begin{subfigure}[b]{0.45\textwidth}
+%			\includegraphics[width=\textwidth]{./part4_experiments/tracking_sine/alpha_theta_dot.png}
+%			\caption{states $\dot{\theta}$ and $\dot{\alpha}$}
+%		\end{subfigure}
+%		\begin{subfigure}[b]{0.45\textwidth}
+%			\includegraphics[width=\textwidth]{./part4_experiments/tracking_sine/motor_input.png}
+%			\caption{motor input}
+%		\end{subfigure}
+%		\caption{tracking with a sine wave}
+%	\end{figure}
 
 	\begin{figure}[H]
 		\centering
-		\begin{subfigure}[b]{0.45\textwidth}
+		\begin{subfigure}[b]{0.4\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/tracking_stair/alpha_theta.png}
 			\caption{states $\theta$ and $\alpha$}
 		\end{subfigure}
-		\begin{subfigure}[b]{0.45\textwidth}
+		\begin{subfigure}[b]{0.4\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/tracking_stair/alpha_theta_dot.png}
 			\caption{states $\dot{\theta}$ and $\dot{\alpha}$}
 		\end{subfigure}
-		\begin{subfigure}[b]{0.45\textwidth}
+		\begin{subfigure}[b]{0.4\textwidth}
 			\includegraphics[width=\textwidth]{./part4_experiments/tracking_stair/motor_input.png}
 			\caption{motor input}
 		\end{subfigure}
-		\caption{tracking with a stair function}
+		\caption{tracking with a triangular wave}
+		\label{driehoeksgolf}
 	\end{figure}
-
+	
+\newpage
 \subsection{disturbances}
+In figure \ref{dis_rej} you can see two disturbance rejection test, we think that the inverted pendulum is quite stable, because it reacts fast on the disturbance so is in less than 2 sec in its normal oscillating regime.
+
 	\begin{figure}[H]
 		\centering
 		\begin{subfigure}[b]{0.45\textwidth}
@@ -121,93 +127,101 @@ Figure~\ref{fig:simulink measurement diagram} contains the Simulink diagram used
 			\caption{motor input}
 		\end{subfigure}
 		\caption{disturbance rejection test}
+		\label{dis_rej}
 	\end{figure}
+	
 
 \subsection{The role of the cut-off frequency of the low pass filter}
+When the cut-off frequency is to low, the inverted pendulum oscillates with a bigger amplitude, see figure~\ref{m_s_f}. Witch makes sense because the controller gets 'less' information and therefore can't react as fast.
+But when the filter is set to high (above 3Hz) the controller react very heavy on the noise contained in the estimated states (see figure~\ref{e_s_f}). The motor starts to click a lot, see figure~\ref{m_o_f}. The ideal cut-off frequency is between 1-3 Hz. Therefore we keep 2 Hz for our experiments, because it is also a choice of what you prefer: a little bit faster reaction and a bit less amplitude in the oscillation or no clicking of the motor. It is clear that a cut-off frequency of above 3 Hz is highly unwanted for the equipment.
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC05/alpha_theta.png}
 		\caption{$f_c=0.5Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC1/alpha_theta.png}
 		\caption{$f_c=1Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC2/alpha_theta.png}
 		\caption{$f_c=2Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC3/alpha_theta.png}
 		\caption{$f_c=3Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC4/alpha_theta.png}
 		\caption{$f_c=4Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC8/alpha_theta.png}
 		\caption{$f_c=4Hz$}
 	\end{subfigure}
 	\caption{measured $\theta$ and $\alpha$ states for different cut off frequencies}
+	\label{m_s_f}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC05/alpha_theta_dot.png}
 		\caption{$f_c=0.5Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC1/alpha_theta_dot.png}
 		\caption{$f_c=1Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC2/alpha_theta_dot.png}
 		\caption{$f_c=2Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC3/alpha_theta_dot.png}
 		\caption{$f_c=3Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC4/alpha_theta_dot.png}
 		\caption{$f_c=4Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC8/alpha_theta_dot.png}
 		\caption{$f_c=4Hz$}
 	\end{subfigure}
 	\caption{calculated $\dot{\theta}$ and $\dot{\alpha}$ states for different cut off frequencies}
+	\label{e_s_f}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC05/motor_input.png}
 		\caption{$f_c=0.5Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC1/motor_input.png}
 		\caption{$f_c=1Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC2/motor_input.png}
 		\caption{$f_c=2Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC3/motor_input.png}
 		\caption{$f_c=3Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC4/motor_input.png}
 		\caption{$f_c=4Hz$}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{./part5_experiments/FC8/motor_input.png}
-		\caption{$f_c=4Hz$}
+		\caption{$f_c=8Hz$}
 	\end{subfigure}
 	\caption{motor input for different cut off frequencies}
+	\label{m_o_f}
 \end{figure}
+
 
