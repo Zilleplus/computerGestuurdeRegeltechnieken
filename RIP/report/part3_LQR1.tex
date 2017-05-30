@@ -1,6 +1,6 @@
 \section{First closed loop}
 
-\subsection{simulink}
+\subsection{Simulink}
 The closed loop diagram is shown in figure \ref{fig:main_simulink_part3_LQR}. The block's that are used are: vector addition, matrix multiplication, saturation block, export data blocks, samplers and in the subsystem some addition, multiplication and integration blocks.
 \begin{figure}[H]
 	\centering
@@ -72,7 +72,7 @@ When we see the step response we think that by adding some weight to $\theta$ th
 		\includegraphics[width=\textwidth]{./part2_LQR1/3_increase_theta_inputs.png}
 		\caption{plot of the signal send to the motor in function of time}
 	\end{subfigure}
-	\caption{RIP increase $\theta$}
+	\caption{RIP with increased $\theta$}
 	\label{fig:heighT}
 \end{figure}
 
@@ -88,7 +88,7 @@ For increasing the stability we now increase the weight of $\alpha$ from 20 to 6
 		\includegraphics[width=\textwidth]{./part2_LQR1/4_increase_alpha_inputs.png}
 		\caption{plot of the signal send to the motor in function of time}
 	\end{subfigure}
-	\caption{RIP increase $\alpha$}
+	\caption{RIP with increased $\alpha$}
 \end{figure}
 
 Because we don't like zeros on the diagonal of the weighting matrix we changed from the beginning the angular velocity weights to 0.1. As last step we've set the weight of $\dot{\alpha}$ to 1. The final values for Q and R are:
@@ -96,7 +96,7 @@ $$
 Q=\begin{bmatrix}
 10 & 0 & 0 & 0 \\
 0 & 60 & 0 & 0 \\
-0 & 0 & 0 & 0 \\
+0 & 0 & 0.1 & 0 \\
 0 & 0 & 0 & 1 \\
 \end{bmatrix}
 R=0.5
@@ -131,6 +131,6 @@ $$
 
 
 
-\subsection{simulated setpoint change}
+\subsection{Simulated setpoint change}
 
 A step of $\theta = 1$ is performed in figure \ref{fig:last_sim_3}. The motor input stays between the $-5V$ and $+5V$ and there is no overshoot or oscillation when the set-point is reached . You can see that the system is a non-minimal-phase system because there is first a negative response before the system goes to the reference signal.
